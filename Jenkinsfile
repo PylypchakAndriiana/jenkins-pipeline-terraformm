@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GOOGLE_CREDS = credentials('gcp-sa-json')
+        GOOGLE_CREDS = credentials('gcp-key-json')
         TF_IN_AUTOMATION = 'true'
     }
 
