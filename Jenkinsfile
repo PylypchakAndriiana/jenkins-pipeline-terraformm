@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        GOOGLE_CREDS = credentials('Terraform-project')
+        GOOGLE_CREDS = credentials('gcp-key-json')
     }
     stages {
         stage('Terraform Init') {
