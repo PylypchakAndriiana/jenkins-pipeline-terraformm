@@ -1,17 +1,23 @@
-stage('Terraform Init') {
-    steps {
-        bat 'terraform init'
+pipeline {
+    agent any
+    environment {
+        GOOGLE_CREDS = credentials('Terraform-project')
     }
-}
-
-stage('Terraform Plan') {
-    steps {
-        bat 'terraform plan'
-    }
-}
-
-stage('Terraform Apply') {
-    steps {
-        bat 'terraform apply -auto-approve'
+    stages {
+        stage('Terraform Init') {
+            steps {
+                bat 'terraform init'
+            }
+        }
+        stage('Terraform Plan') {
+            steps {
+                bat 'terraform plan'
+            }
+        }
+        stage('Terraform Apply') {
+            steps {
+                bat 'terraform apply -auto-approve'
+            }
+        }
     }
 }
